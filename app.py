@@ -71,7 +71,7 @@ if "mood" not in st.session_state:
 st.title("🧠 Pick Your Pair")
 st.write("Choose two images that sum up your vibe. Then hit the button to see your mood summary!")
 
-cols = st.columns(4)
+cols = st.columns(2)
 for i, img in enumerate(st.session_state.images):
     with cols[i % 4]:
         is_selected = img["id"] in st.session_state.selected
@@ -79,7 +79,7 @@ for i, img in enumerate(st.session_state.images):
 
         st.markdown(f"""
         <div style='border:{border_style}; border-radius:10px; padding:10px; text-align:center'>
-            <img src='{img['url']}' width='150' height='150' style='object-fit:cover; border-radius:8px' />
+            <img src='{img['url']}' width='100%' style='height:250px; object-fit:cover; border-radius:8px' />
             <p style='font-size:0.85rem'>Click to select</p>
         </div>
         """, unsafe_allow_html=True)
