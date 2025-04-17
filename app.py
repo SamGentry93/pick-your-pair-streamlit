@@ -74,7 +74,12 @@ st.write("Choose two images that sum up your vibe. Then hit the button to see yo
 cols = st.columns(4)
 for i, img in enumerate(st.session_state.images):
     with cols[i % 4]:
-        st.image(img["url"], use_column_width=True, caption="Click to select", output_format="PNG")
+        if img["id"] in st.session_state.selected:
+    st.markdown("<div style='border:3px solid #1E90FF; border-radius:10px; padding:2px'>", unsafe_allow_html=True)
+    st.image(img["url"], caption="Click to select", output_format="PNG", width=250)
+    st.markdown("</div>", unsafe_allow_html=True)
+else:
+    st.image(img["url"], caption="Click to select", output_format="PNG", width=250)
         if st.button(f"Select {i+1}", key=f"select_{img['id']}"):
             if img["id"] in st.session_state.selected:
                 st.session_state.selected.remove(img["id"])
