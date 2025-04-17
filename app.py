@@ -64,7 +64,19 @@ def generate_mood(a, b):
 if "selected" not in st.session_state:
     st.session_state.selected = []
 if "images" not in st.session_state:
-    st.session_state.images = random.sample(all_images, 8)
+    def image_works(url):
+        try:
+            from PIL import Image
+            import requests
+            from io import BytesIO
+            img = Image.open(BytesIO(requests.get(url, timeout=3).content))
+            img.verify()
+            return True
+        except:
+            return False
+
+    valid_images = [img for img in all_images if image_works(img['url'])]
+    st.session_state.images = random.sample(valid_images, 8) if len(valid_images) >= 8 else valid_images
 if "mood" not in st.session_state:
     st.session_state.mood = ""
 
