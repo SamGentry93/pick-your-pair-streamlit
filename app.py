@@ -74,15 +74,18 @@ st.write("Choose two images that sum up your vibe. Then hit the button to see yo
 cols = st.columns(4)
 for i, img in enumerate(st.session_state.images):
     with cols[i % 4]:
-        if img["id"] in st.session_state.selected:
-            st.markdown("<div style='border:3px solid #1E90FF; border-radius:10px; padding:2px'>", unsafe_allow_html=True)
-            st.image(img["url"], caption="Click to select", output_format="PNG", width=250)
-            st.markdown("</div>", unsafe_allow_html=True)
-        else:
-            st.image(img["url"], caption="Click to select", output_format="PNG", width=250)
+        is_selected = img["id"] in st.session_state.selected
+        border_style = "3px solid #1E90FF" if is_selected else "1px solid #ddd"
+
+        st.markdown(f"""
+        <div style='border:{border_style}; border-radius:10px; padding:10px; text-align:center'>
+            <img src='{img['url']}' width='150' height='150' style='object-fit:cover; border-radius:8px' />
+            <p style='font-size:0.85rem'>Click to select</p>
+        </div>
+        """, unsafe_allow_html=True)
 
         if st.button(f"Select {i+1}", key=f"select_{img['id']}"):
-            if img["id"] in st.session_state.selected:
+            if is_selected:
                 st.session_state.selected.remove(img["id"])
             elif len(st.session_state.selected) < 2:
                 st.session_state.selected.append(img["id"])
