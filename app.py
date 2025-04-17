@@ -71,9 +71,10 @@ if "mood" not in st.session_state:
 st.title("🧠 Pick Your Pair")
 st.write("Choose two images that sum up your vibe. Then hit the button to see your mood summary!")
 
-cols = st.columns(2)
+rows = [st.columns(4) for _ in range(2)]
 for i, img in enumerate(st.session_state.images):
-    with cols[i % len(cols)]:
+    col = rows[i // 4][i % 4]
+    with col:
         is_selected = img["id"] in st.session_state.selected
         border_style = "3px solid #1E90FF" if is_selected else "1px solid #ddd"
 
