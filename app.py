@@ -60,4 +60,37 @@ def generate_mood(a, b):
     ]
     return random.choice(templates)
 
-# App state (rest of the app remains unchanged)...
+# App state
+if "selected" not in st.session_state:
+    st.session_state.selected = []
+if "images" not in st.session_state:
+    st.session_state.images = random.sample(all_images, 8)
+if "mood" not in st.session_state:
+    st.session_state.mood = ""
+
+st.title("🧠 Pick Your Pair")
+st.write("Choose two images that sum up your vibe. Then hit the button to see your mood summary!")
+
+cols = st.columns(4)
+for i, img in enumerate(st.session_state.images):
+    with cols[i % 4]:
+        st.image(img["url"], use_column_width=True, caption="Click to select", output_format="PNG")
+        if st.button(f"Select {i+1}", key=f"select_{img['id']}"):
+            if img["id"] in st.session_state.selected:
+                st.session_state.selected.remove(img["id"])
+            elif len(st.session_state.selected) < 2:
+                st.session_state.selected.append(img["id"])
+            st.session_state.mood = ""
+
+if len(st.session_state.selected) == 2:
+    selected_imgs = [img for img in st.session_state.images if img["id"] in st.session_state.selected]
+    if st.button("🎉 Reveal My Mood"):
+        st.session_state.mood = generate_mood(*selected_imgs)
+
+if st.session_state.mood:
+    st.success(st.session_state.mood)
+
+if st.button("🔄 New Images"):
+    st.session_state.selected = []
+    st.session_state.mood = ""
+    st.session_state.images = random.sample(all_images, 8)
