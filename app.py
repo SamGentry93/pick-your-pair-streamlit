@@ -115,4 +115,5 @@ if st.session_state.mood:
 if st.button("🔄 New Images"):
     st.session_state.selected = []
     st.session_state.mood = ""
-    st.session_state.images = random.sample(all_images, 8)
+    valid_images = [img for img in all_images if image_works(img['url'])]
+    st.session_state.images = random.sample(valid_images, 8) if len(valid_images) >= 8 else valid_images
