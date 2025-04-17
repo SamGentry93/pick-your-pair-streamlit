@@ -73,13 +73,15 @@ st.write("Choose two images that sum up your vibe. Then hit the button to see yo
 
 cols = st.columns(2)
 for i, img in enumerate(st.session_state.images):
-    with cols[i % 4]:
+    with cols[i % len(cols)]:
         is_selected = img["id"] in st.session_state.selected
         border_style = "3px solid #1E90FF" if is_selected else "1px solid #ddd"
 
         st.markdown(f"""
         <div style='border:{border_style}; border-radius:10px; padding:10px; text-align:center'>
-            <img src='{img['url']}' width='100%' style='height:250px; object-fit:cover; border-radius:8px' />
+            <div style='aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;'>
+<img src='{img['url']}' style='width: 100%; height: 100%; object-fit: cover;' />
+</div>
             <p style='font-size:0.85rem'>Click to select</p>
         </div>
         """, unsafe_allow_html=True)
