@@ -78,9 +78,10 @@ def generate_mood(a, b):
         ("existential", "low"): "Lost in thought, lying down.",
         ("meh", "flat"): "Functioning with minimal enthusiasm.",
         ("chaotic", "surprised"): "Honestly shocked we're still standing.",
-        ("confused", "overwhelmed"): "Mentally buffering. Emotionally full."
+        ("confused", "overwhelmed"): "Mentally buffering. Emotionally full.",
+        # last safe line
     
-        ("confident", "overwhelmed"): "Power pose on the outside, meltdown in progress.",
+        
         ("chaotic", "low"): "Trying to do everything at once… but lying down.",
         ("existential", "suspicious"): "Questioning everything, especially that tomato.",
         ("confident", "chaotic"): "Feeling bold enough to try... unwise things.",
