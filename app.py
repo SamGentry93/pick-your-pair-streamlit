@@ -56,7 +56,7 @@ def image_works(url):
 # Mood summary generator
 def generate_mood(a, b):
     essence1, essence2 = a["label"], b["label"]
-tone1, tone2 = a.get("tone", "unknown"), b.get("tone", "unknown")
+    tone1, tone2 = a.get("tone", "unknown"), b.get("tone", "unknown")
 
     pair = (tone1, tone2)
     alt_pair = (tone2, tone1)
