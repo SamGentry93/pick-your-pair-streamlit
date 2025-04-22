@@ -62,6 +62,24 @@ def generate_mood(a, b):
     alt_pair = (tone2, tone1)
 
     smart_pairings = {
+        ("flat", "cheeky"): "Deadpan delivery, chaotic energy.",
+        ("confident", "meh"): "Leading the way. Not sure where to.",
+        ("meltdown", "overwhelmed"): "Holding it together. Just not very well.",
+        ("low", "confused"): "Exhausted and baffled, a modern classic.",
+        ("confident", "tough"): "Soft heart, steel vibes.",
+        ("flat", "surprised"): "Didn't see that coming. Not reacting anyway.",
+        ("cheeky", "chaotic"): "Flirting with disaster, literally.",
+        ("existential", "high"): "Existence is thrilling. Also terrifying.",
+        ("meh", "suspicious"): "Too disinterested to trust anything.",
+        ("overwhelmed", "stuck"): "Over it. In it. Not moving.",
+        ("low", "flat"): "Running on fumes and vibes.",
+        ("chaotic", "confident"): "Disaster, but with confidence.",
+        ("flat", "overwhelmed"): "Feeling everything. Expressing nothing.",
+        ("existential", "low"): "Lost in thought, lying down.",
+        ("meh", "flat"): "Functioning with minimal enthusiasm.",
+        ("chaotic", "surprised"): "Honestly shocked we're still standing.",
+        ("confused", "overwhelmed"): "Mentally buffering. Emotionally full."
+    
         ("confident", "overwhelmed"): "Power pose on the outside, meltdown in progress.",
         ("chaotic", "low"): "Trying to do everything at once… but lying down.",
         ("existential", "suspicious"): "Questioning everything, especially that tomato.",
