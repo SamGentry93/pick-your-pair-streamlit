@@ -3,7 +3,7 @@ import random
 
 # Full image list
 all_images = [
-    {"id": "unicorn_dog", "label": "delusionally fabulous", "url": "https://raw.githubusercontent.com/SamGentry93/pick-your-pair-images/main/I%27m%20a%20unicorn.jpg"},
+    {"id": "unicorn_dog", "label": "delusionally fabulous", "tone": "placeholder", "url": "https://raw.githubusercontent.com/SamGentry93/pick-your-pair-images/main/I%27m%20a%20unicorn.jpg"},
     {"id": "leapfrog_child", "label": "joyfully disruptive", "url": "https://raw.githubusercontent.com/SamGentry93/pick-your-pair-images/main/Leapfrog.jpg"},
     {"id": "sneaky_artist", "label": "stealthy chaos", "url": "https://raw.githubusercontent.com/SamGentry93/pick-your-pair-images/main/artist.jpg"},
     {"id": "post_it_person", "label": "administrative overload", "url": "https://raw.githubusercontent.com/SamGentry93/pick-your-pair-images/main/attack%20of%20the%20post%20it%20notes.jpg"},
@@ -56,46 +56,7 @@ def image_works(url):
 # Mood summary generator
 def generate_mood(a, b):
     essence1, essence2 = a["label"], b["label"]
-    tones = {
-        "delusionally fabulous": "confident",
-        "joyfully disruptive": "chaotic",
-        "stealthy chaos": "chaotic",
-        "administrative overload": "overwhelmed",
-        "judging silently": "flat",
-        "in over your head": "overwhelmed",
-        "burdened with cuteness": "low",
-        "unexpected vengeance": "chaotic",
-        "backhanded betrayal": "overwhelmed",
-        "existential zoom-in": "existential",
-        "the classic excuse": "meh",
-        "cleaning by existence": "flat",
-        "existential packaging": "existential",
-        "full-body enthusiasm": "high",
-        "crustacean cosplay": "confident",
-        "ambition > ability": "stuck",
-        "pandemic chic": "meh",
-        "drenched disappointment": "overwhelmed",
-        "chaotic good": "chaotic",
-        "spiralling gloriously": "meltdown",
-        "modelling menace": "confident",
-        "eternal commute": "flat",
-        "banana-flavoured ego": "confident",
-        "feline influencer": "confident",
-        "sass in wool": "cheeky",
-        "energy-saving mode": "low",
-        "tiny sleep expert": "low",
-        "bad decisions, no exit": "stuck",
-        "shock & aww": "surprised",
-        "food trust issues": "suspicious",
-        "existential hesitation": "existential",
-        "CEO of snack strategy": "confident",
-        "soft and scary": "tough",
-        "tropical mindset": "zen",
-        "flappy confusion": "confused"
-    }
-
-    tone1 = tones.get(essence1, "unknown")
-    tone2 = tones.get(essence2, "unknown")
+tone1, tone2 = a.get("tone", "unknown"), b.get("tone", "unknown")
 
     pair = (tone1, tone2)
     alt_pair = (tone2, tone1)
