@@ -15,7 +15,7 @@ all_images = [
     {"id": "penguin_zoom", "label": "existential zoom-in", "url": "https://raw.githubusercontent.com/SamGentry93/pick-your-pair-images/main/close%20up%20time.jpg"},
     {"id": "homework_excuse", "label": "the classic excuse", "url": "https://raw.githubusercontent.com/SamGentry93/pick-your-pair-images/main/dog%20ate%20my%20homework.jpg"},
     {"id": "mop_dog", "label": "cleaning by existence", "url": "https://raw.githubusercontent.com/SamGentry93/pick-your-pair-images/main/dog%20as%20mop.jpg"},
-    {"id": "void_box", "label": "existential packaging", "tone": "existential", "url": "https://raw.githubusercontent.com/SamGentry93/pick-your-pair-images/main/empty%20void%20filler.jpg"},
+    {"id": "void_box", "label": "existential packaging", "tone": "existential", "url": "https://raw.githubusercontent.com/SamGentry93/pick-your-pair-images/main/empty%20void%20filler.jpg", "width": 300, "height": 200},
     {"id": "falling_backwards", "label": "full-body enthusiasm", "url": "https://raw.githubusercontent.com/SamGentry93/pick-your-pair-images/main/falling%20backwards.jpg"},
     {"id": "lobster_dog", "label": "crustacean cosplay", "url": "https://raw.githubusercontent.com/SamGentry93/pick-your-pair-images/main/lobster%20dog.jpg"},
     {"id": "catflap_dog", "label": "ambition > ability", "url": "https://raw.githubusercontent.com/SamGentry93/pick-your-pair-images/main/not%20the%20cat%20flap.jpg"},
