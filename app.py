@@ -135,7 +135,7 @@ for i, img in enumerate(st.session_state.images):
 
         st.markdown(f"""
         <div style='border:{border_style}; border-radius:10px; padding:10px; text-align:center'>
-            <img src='{img['url']}' style='width: 100%; max-height: 250px; height: auto; object-fit: contain; border-radius: 8px;' />
+            <img src='{img['url']}' style='width: 100%; height: 250px; object-fit: cover; border-radius: 8px;' />
             <p style='font-size:0.85rem'>Click to select</p>
         </div>
         """, unsafe_allow_html=True)
