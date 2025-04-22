@@ -55,19 +55,83 @@ def image_works(url):
 
 # Mood summary generator
 def generate_mood(a, b):
-    essence1 = a["label"]
-    essence2 = b["label"]
+    essence1, essence2 = a["label"], b["label"]
+    tones = {
+        "delusionally fabulous": "confident",
+        "joyfully disruptive": "chaotic",
+        "stealthy chaos": "chaotic",
+        "administrative overload": "overwhelmed",
+        "judging silently": "flat",
+        "in over your head": "overwhelmed",
+        "burdened with cuteness": "low",
+        "unexpected vengeance": "chaotic",
+        "backhanded betrayal": "overwhelmed",
+        "existential zoom-in": "existential",
+        "the classic excuse": "meh",
+        "cleaning by existence": "flat",
+        "existential packaging": "existential",
+        "full-body enthusiasm": "high",
+        "crustacean cosplay": "confident",
+        "ambition > ability": "stuck",
+        "pandemic chic": "meh",
+        "drenched disappointment": "overwhelmed",
+        "chaotic good": "chaotic",
+        "spiralling gloriously": "meltdown",
+        "modelling menace": "confident",
+        "eternal commute": "flat",
+        "banana-flavoured ego": "confident",
+        "feline influencer": "confident",
+        "sass in wool": "cheeky",
+        "energy-saving mode": "low",
+        "tiny sleep expert": "low",
+        "bad decisions, no exit": "stuck",
+        "shock & aww": "surprised",
+        "food trust issues": "suspicious",
+        "existential hesitation": "existential",
+        "CEO of snack strategy": "confident",
+        "soft and scary": "tough",
+        "tropical mindset": "zen",
+        "flappy confusion": "confused"
+    }
+
+    tone1 = tones.get(essence1, "unknown")
+    tone2 = tones.get(essence2, "unknown")
+
+    pair = (tone1, tone2)
+    alt_pair = (tone2, tone1)
+
+    smart_pairings = {
+        ("confident", "overwhelmed"): "Power pose on the outside, meltdown in progress.",
+        ("chaotic", "low"): "Trying to do everything at once… but lying down.",
+        ("existential", "suspicious"): "Questioning everything, especially that tomato.",
+        ("confident", "chaotic"): "Feeling bold enough to try... unwise things.",
+        ("meh", "meltdown"): "Too tired to care, too stressed to stop spiralling.",
+        ("zen", "overwhelmed"): "Namaste… but barely holding it together.",
+        ("tough", "flat"): "Soft on the inside, emotionally offline.",
+        ("confused", "confident"): "Wildly sure of nothing.",
+        ("cheeky", "existential"): "Existential dread, but make it flirty.",
+        ("overwhelmed", "overwhelmed"): "Overflowing inbox, overflowing emotions.",
+        ("flat", "flat"): "Running on default mode and oat milk.",
+        ("chaotic", "chaotic"): "Chaos squared. Send help or snacks.",
+        ("confident", "confident"): "Main character energy. Might crash later.",
+        ("low", "low"): "Quiet quitting reality.",
+        ("surprised", "meh"): "Caught off guard by how little I care.",
+        ("stuck", "existential"): "Not sure where I am, but I think I’ve been here a while."
+    }
+
+    if pair in smart_pairings:
+        return smart_pairings[pair]
+    elif alt_pair in smart_pairings:
+        return smart_pairings[alt_pair]
+
+    # Fallbacks
     templates = [
-        f"When {essence1} meets {essence2}, you get a masterpiece of dysfunction.",
-        f"Balancing between {essence1} and {essence2} — pray for us.",
-        f"Equal parts {essence1} and {essence2}. Somehow it's working?",
-        f"{essence1} energy with a dash of {essence2} madness.",
-        f"Started with {essence1}, ended up in {essence2}.",
-        f"{essence1} is the vibe. {essence2} is the consequence.",
-        f"Somewhere between {essence1} and {essence2}, there's a cry for help.",
-        f"If your day feels like {essence1} plus {essence2}, you're not alone.",
-        f"{essence1} plus {essence2} = Peak 2020s energy.",
-        f"A recipe for disaster: 1 cup {essence1}, 2 spoons {essence2}."
+        f"Today feels like a mix of {essence1} and {essence2}. Unstable, but honest.",
+        f"Somewhere between {essence1} and {essence2} — and holding it together.",
+        f"{essence1} on the outside, {essence2} on the inside.",
+        f"If moods were a playlist: {essence1}, then abruptly {essence2}.",
+        f"Started with {essence1}, ended up in {essence2}.", 
+        f"{essence1} and {essence2}. You OK, hun?"
     ]
     return random.choice(templates)
 
